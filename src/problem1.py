@@ -106,7 +106,7 @@ def sum_of_digits(number):
 def run_test_problem1a():
     """ Tests the   problem1a   function. """
     # -------------------------------------------------------------------------
-    # TODO: 3. Implement this TEST function.
+    # Done: 3. Implement this TEST function.
     #   It TESTS the  problem1a  function defined below.
     #   Include at least **   4   ** tests (we wrote two for you).
     # -------------------------------------------------------------------------
@@ -180,7 +180,7 @@ def problem1a(m, n):
       -- If m is 30 and n is 100, the correct answer is about 1.278.
     """
     # -------------------------------------------------------------------------
-    # TODO: 4. Implement and test this function.
+    # Done: 4. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     # -------------------------------------------------------------------------
     # -------------------------------------------------------------------------
@@ -213,8 +213,25 @@ def run_test_problem1b():
     print('--------------------------------------------------')
     print('Testing the   problem1b   function:')
     print('--------------------------------------------------')
+    expected = 2
+    actual = problem1b(1, 2)
+    print('Test 1 expected:', expected)
+    print('       actual:  ', actual)
 
+    expected = 4
+    actual = problem1b(2, 4)
+    print('Test 1 expected:', expected)
+    print('       actual:  ', actual)
 
+    expected = 3
+    actual = problem1b(1, 4)
+    print('Test 1 expected:', expected)
+    print('       actual:  ', actual)
+
+    expected = 4
+    actual = problem1b(3, 4)
+    print('Test 1 expected:', expected)
+    print('       actual:  ', actual)
 def problem1b(m, f):
     """
     What comes in:  Positive integers m and f such that m >= 2.
@@ -245,7 +262,11 @@ def problem1b(m, f):
     #    DIFFICULTY:      5
     #    TIME ESTIMATE:   10 to 15 minutes.
     # -------------------------------------------------------------------------
-
+    count = 0
+    for k in range(f*m - m + 1):
+        if is_prime(m + k):
+            count = count + 1
+    return count
 
 def run_test_problem1c():
     """ Tests the   problem1c   function. """
