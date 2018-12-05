@@ -266,7 +266,7 @@ def problem0b(n):
            since there are 46 primes between 2 and 200.
      """
     # -------------------------------------------------------------------------
-    # TODO: 4. Implement and test this function.
+    # Done: 4. Implement and test this function.
     #          Tests have been written for you (above).
     #
     ###########################################################################
@@ -275,7 +275,11 @@ def problem0b(n):
     #    **  use (call) the   is_prime   function that is DEFINED ABOVE.
     ###########################################################################
     # ------------------------------------------------------------------
-
+    count = 0
+    for k in range(n - 1):
+        if is_prime(k + 2):
+            count = count + 1
+    return count
 
 def run_test_problem0c():
     """ Tests the   problem0c  function. """
@@ -342,8 +346,11 @@ def problem0c(circle, n, window):
     #   renders with a half-second pause after rendering.
     ###########################################################################
     # -------------------------------------------------------------------------
-
-
+    circle.attach_to(window)
+    for k in range(n):
+        circle = rg.Circle(rg.Point(circle.center.x + 2 * circle.radius, circle.center.y), circle.radius)
+        circle.attach_to(window)
+    window.render()
 ###############################################################################
 # Our tests use the following to print error messages in red.
 # Do NOT change it.  You do NOT have to do anything with it.
