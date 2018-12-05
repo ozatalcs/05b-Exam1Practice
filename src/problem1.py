@@ -28,7 +28,7 @@ Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
 
 import testing_helper
 import time
-
+import math
 
 def main():
     """ Calls the   TEST   functions in this module. """
@@ -38,7 +38,7 @@ def main():
 
 
 ###############################################################################
-# TODO: 2.  READ the green doc-string for the:
+# Done: 2.  READ the green doc-string for the:
 #   - is_prime
 #   - sum_of_digits
 # functions defined below.  You do NOT need to understand their
@@ -137,7 +137,6 @@ def run_test_problem1a():
     actual = problem1a(30, 100)
     print_actual_result_of_test(expected, actual, test_results, precision=3)
 
-    print_summary_of_test_results(test_results)
 
     # -------------------------------------------------------------------------
     # TO DO: 2 (continued).
@@ -148,7 +147,20 @@ def run_test_problem1a():
     #   print('Test 1 expected:', expected)
     #   print('       actual:  ', actual)
     # -------------------------------------------------------------------------
+    expected = 1.135  # This is APPROXIMATELY the correct answer.
+    print_expected_result_of_test([1, 2], expected, test_results,
+                                  format_string)
+    actual = problem1a(1, 2)
+    print_actual_result_of_test(expected, actual, test_results, precision=3)
 
+
+    expected = .0633  # This is APPROXIMATELY the correct answer.
+    print_expected_result_of_test([-2, 3], expected, test_results,
+                                  format_string)
+    actual = problem1a(-2, 3)
+    print_actual_result_of_test(expected, actual, test_results, precision=3)
+
+    print_summary_of_test_results(test_results)
 
 def problem1a(m, n):
     """
@@ -176,7 +188,10 @@ def problem1a(m, n):
     #    DIFFICULTY:      5
     #    TIME ESTIMATE:   10 minutes.
     # -------------------------------------------------------------------------
-
+    total = 0
+    for k in range(n**2 - m**2 + 1):
+        total = total + math.sin(m**2 + k)
+    return total
 
 def run_test_problem1b():
     """ Tests the   problem1b   function. """
