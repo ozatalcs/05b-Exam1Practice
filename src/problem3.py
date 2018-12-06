@@ -38,7 +38,7 @@ def main():
 def run_test_problem3a():
     """ Tests the   problem3a   function. """
     # -------------------------------------------------------------------------
-    # TODO: 2. Implement this TEST function.
+    # Done: 2. Implement this TEST function.
     #   It TESTS the  problem1a  function defined below.
     #   Include at least **   5   ** tests (we wrote four for you).
     # -------------------------------------------------------------------------
@@ -144,7 +144,7 @@ def problem3a(window, point, n):
         :type n:      int
     """
     # -------------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # Done: 3. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     # -------------------------------------------------------------------------
     # -------------------------------------------------------------------------
@@ -212,13 +212,13 @@ def problem3b(m, point1):
       -- Waits for the user to click the mouse (and displays an
            appropriate message prompting the user to do so),
            then closes the window.
-
+    #problem3a(window, point, n)
     Type hints:
         :type m:      int
         :type point1: rg.Point
     """
     # -------------------------------------------------------------------------
-    # TODO: 4. Implement and test this function.
+    # Done: 4. Implement and test this function.
     #          Tests have been written for you (above).
     #
     ###########################################################################
@@ -231,7 +231,12 @@ def problem3b(m, point1):
     #    DIFFICULTY:      8 or 9
     #    TIME ESTIMATE:   20 to 30 minutes.
     # -------------------------------------------------------------------------
-
+    window = rg.RoseWindow(400, 650)
+    count = 0
+    for k in range(m):
+        count = count + problem3a(window, rg.Point(point1.x, point1.y + 60 * k), 3 + 2 * k)
+    window.close_on_mouse_click()
+    return count
 # -----------------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
 # -----------------------------------------------------------------------------
